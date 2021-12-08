@@ -16,10 +16,11 @@ f()
 //setTimeout(f, 1000);
 Function.bind()
 var bound = bind(f, user);
+var bound2 = bind(f, user2);
 bound()
+bound2()
 
 function bind(func, context) {
-    const x = this
     return function () {
         func.call(context)
     }

@@ -1,14 +1,17 @@
 function Person(name) {
     this.name = name
     this.dumbSayHi = () => this.name
-    this.sayHi = callOnceAfter(this.dumbSayHi, 200).bind(this)
+    this.sayHi = callOnceAfter(this.dumbSayHi, 2000, this)
 }
+
 
 const callOnceAfter = (callback, t) => {
     let id = null;
-    return (arg) => {
+    return (...arg) => {
         clearTimeout(id);
-        id = setTimeout(() => callback(arg), t)
+        id = setTimeout(() => {
+            console.log(callback(arg));
+        }, t)
 
     }
 }
@@ -16,8 +19,6 @@ const callOnceAfter = (callback, t) => {
 var john = new Person('John');
 console.log(john.name === 'John')
 console.log(john.dumbSayHi())
-console.log(john.sayHi)
-console.log(john.sayHi())
-console.log(john.sayHi())
-console.log(john.sayHi())
-console.log(john.sayHi())
+john.sayHi()
+john.sayHi()
+john.sayHi()
