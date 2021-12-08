@@ -11,7 +11,7 @@ for(var i = 0; i < inputs.length; i += 1) {
                 throw new Error("input is empty")
             }else  {
                 console.log(input.name)
-                input.style.border = '2px solid black';
+                input.style.border = 'none';
             }
         });
     })();

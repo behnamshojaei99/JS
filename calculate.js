@@ -1,4 +1,4 @@
-function calculate(operand) {
+function calculate(operator) {
     /* code here */
     // any operator can add to this object
     const obj = {
@@ -7,9 +7,9 @@ function calculate(operand) {
         '*': (operand1, operand2) => operand1 * operand2,
         '/': (operand1, operand2) => operand1 / operand2,
     }
-    return function (operator1) {
-        return function (operator2) {
-            console.log(obj[operand](operator1, operator2))
+    return function (operand1) {
+        return function (operand2) {
+            console.log(obj[operator](operand1, operand2))
         }
     }
 }
