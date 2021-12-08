@@ -1,7 +1,7 @@
 let user = {
     firstName: "John",
-    sayHi() {
-        console.log(`Hello, ${this.firstName}!`);
+    sayHi(x) {
+        console.log(`Hello, ${this.firstName}! ${x}`);
     }
 };
 let user2 = {
@@ -19,7 +19,7 @@ bound()
 bound2()
 
 function bind(func, context) {
-    return function () {
-        func.call(context)
+    return function (...args) {
+        func.apply(context, args)
     }
 }
